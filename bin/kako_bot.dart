@@ -8,8 +8,19 @@ void main() async {
   var a = true;
   String usuario = '';
 
+  var myStream = BotClock().meyBotStream(1, 10);
+
+  var subscriber = myStream.listen((event) {
+    print("                    MeuBot is activated for $event seconds");
+  }, onDone: () {
+    print("terminou ");
+    a = false;
+  });
+
   print('-- Iniciando o MeuBot, aguarde..--');
+
   await BotClock().clock(2);
+
   print('MeuBot:\n Oi :) \n Como posso ajudar?');
   do {
     usuario = stdin.readLineSync().toString();
