@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'questions/calculate.dart';
 import 'questions/good_manners.dart';
+import 'questions/knowledge.dart';
 import 'questions/time_questions.dart';
 import 'timing/waiting_time.dart';
 
@@ -39,6 +40,8 @@ void main() async {
       GoodManager(usuario).goodManners();
     } else if (Calculate(usuario).isTheCalculate()) {
       Calculate(usuario).calculateFunc();
+    } else if (knowledge(usuario).isKnowledge()) {
+      knowledge(usuario).Knowledge();
     } else {
       await BotClock().clock(2);
       print(MeuBot +
