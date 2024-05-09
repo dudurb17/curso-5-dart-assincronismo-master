@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'questions/calculate.dart';
 import 'questions/good_manners.dart';
 import 'questions/time_questions.dart';
 import 'timing/waiting_time.dart';
@@ -11,9 +12,7 @@ void main() async {
 
   var myStream = BotClock().meyBotStream(1, 10);
 
-  var subscriber = myStream.listen((event) {
-    print("                    MeuBot is activated for $event seconds");
-  }, onDone: () {
+  var subscriber = myStream.listen((event) {}, onDone: () {
     print("terminou ");
     a = false;
   });
@@ -38,8 +37,8 @@ void main() async {
       TimeQuestions(usuario).timeQuestion();
     } else if (GoodManager(usuario).isThisManners()) {
       GoodManager(usuario).goodManners();
-    } else if (false) {
-      //Basta adicionar novas perguntas aqui!
+    } else if (Calculate(usuario).isTheCalculate()) {
+      Calculate(usuario).calculateFunc();
     } else {
       await BotClock().clock(2);
       print(MeuBot +

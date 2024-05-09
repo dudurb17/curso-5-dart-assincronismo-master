@@ -6,9 +6,9 @@ class BotClock {
   Stream meyBotStream(int interval, [int? maxCount]) async* {
     int i = 1;
     while (i != maxCount) {
-      print("Counting $i");
       await Future.delayed(Duration(seconds: interval));
       yield i++;
     }
+    print("Finalizou o bot");
   }
 }
